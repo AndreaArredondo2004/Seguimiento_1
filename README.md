@@ -37,6 +37,7 @@ SOLUCIÓN SEGUIMIENTO 1
    principalmente se encuentra en Tíbet, Nepal y partes del oeste chino. Tiene un gran tamaño, pelaje largo y denso y cuernos prominentes, lo que les permitío adaptarse
    a ambientes extremos de gran altitud, bajas temperaturas y escacez de oxígeno. Es el mamífero asiático capaz de habitar a maños altitud, viviendo entre los 3.000 y
    5.5000 metros sobre el nivel del mar (Parada, 2020).
+   
    Es el ancestro salvaje del yak doméstico (Bos grunniens), con el cual comparte similitudes genéticas; y desde el punto de vista genómico su estudio es relevante para
    comprender la adaptación a condiciones hóstiles y la evolución del ganado en zonas de gran altura (Parada, 2020).
 
@@ -70,16 +71,27 @@ SOLUCIÓN SEGUIMIENTO 1
        El archivo contiene 20.847 genes listados del Yak salvaje.
        
     6. ¿Cuál es el top 10 de tipo de features (columna 3 más anotados en el genoma?:
+       
        El top 10 de tipo de features en la columna 3 más anotados en el genoma son:
+       
         3'89.870 exon
+       
         374.084 CDS
+       
         256.746 biological_region
+       
         41.192 region
+       
         34.663 mRNA
+       
         20.847 gene
+       
         18.270 five_prime_UTR
+  
         12.328 three_prime_UTR
+       
         4.339 ncRNA_gene
+       
         1.437 lnc_RNA
 
 
