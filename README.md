@@ -52,9 +52,11 @@ SOLUCIÓN SEGUIMIENTO 1
        tiene 60 cromosomas (2n=60). Esto no se debe a un error, si no a la forma en la que está representado el genoma del Bos mutus en el archivo .gff3 descargado de
        Ensembl; puesto que, las secuencias de la columna 1 tienen identificadores como JH912421.1, JH912422.1 ó JH912423.1, los cuales indican que las anotaciones están
        referidas a contigs o scaffolds, que son fragmentos del genoma ensambaldo y no cromosomas completos.
+       
        Los contigs son conjuntos de segmentos que se superponen parcialmente, de forma que todos juntos dan una representación continua del genoma (NIH, 2025).
        Los scaffolds por su parte son estructuras de ADN un poco más largas que están ensambladas a partir de los contigs y ayudan a representar regiones más amplias del            genoma (Salerno et al, 2025).
-       
+
+       En total en el archivo hay 41.191 contigs o scaffolds (JH[0-9]+\.)
 
        
        
