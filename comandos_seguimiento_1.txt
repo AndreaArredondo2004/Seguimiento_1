@@ -3,16 +3,16 @@
   
 wget ftp://ftp.ensembl.org/pub/current_gff3/bos_mutus/Bos_mutus.BosGru_v2.0.114.gff3.gz
 
-# wget: es un comando que permite descargar archivos desde la web o servidores FTP (como en este caso).
-# Se copia también el URL del archivo para proceder a descargarlo.
+  # wget: es un comando que permite descargar archivos desde la web o servidores FTP (como en este caso).
+  # Se copia también el URL del archivo para proceder a descargarlo.
 
 # ----DESCOMPRIMIR EL ARCHIVO----
 # El archivo estaba comprido y para poder acceder a su información fue necesario usar este comando:
 
 gunzip Bos_mutus.BosGru_v2.0.114.gff3.gz
 
-# gunzip: descomprime archivos .gz que están comprimidos por un GZIP.
-#  Bos_mutus.BosGru_v2.0.114.gff3.gz: es el archivo .gff3 comprimido que dercargue en el paso anterior. 
+  # gunzip: descomprime archivos .gz que están comprimidos por un GZIP.
+  #  Bos_mutus.BosGru_v2.0.114.gff3.gz: es el archivo .gff3 comprimido que dercargue en el paso anterior. 
 
 # ---- SOLUCIÓN DE LA ACTIVIDAD (ANÁLISIS DEL ARCHIVO)----
 
@@ -22,52 +22,52 @@ gunzip Bos_mutus.BosGru_v2.0.114.gff3.gz
   
 cat Bos_mutus.BosGru_v2.0.114.gff3 | grep -v '^#' | wc -l
 
-# cat Bos_mutus.BosGru_v2.0.114.gff3: Lee el archivo completo y envía el contenido a la siguiente parte del comando.
-# |: Toma la salida del comando anterior y la envía al nuevo comando.
-# grep -v '^#': Filtra el archivo y elimina todas las líneas que empiezan por "#", mostrando todo lo que NO este con comentado. 
-# wc -l: Cuenta el número total de líneas que quedan después del comando. 
+  # cat Bos_mutus.BosGru_v2.0.114.gff3: Lee el archivo completo y envía el contenido a la siguiente parte del comando.
+  # |: Toma la salida del comando anterior y la envía al nuevo comando.
+  # grep -v '^#': Filtra el archivo y elimina todas las líneas que empiezan por "#", mostrando todo lo que NO este con comentado. 
+  # wc -l: Cuenta el número total de líneas que quedan después del comando. 
 
 # 2. ¿Cuántas regiones de la secuencia (cromosomas) contiene el archivo?
 # Primero mostré en pantalla toda la columna 1 (Secuencias) del archivo, usando el siguiente comando: 
 
 cat Bos_mutus.BosGru_v2.0.114.gff3 | grep -v "^#" | cut -f1 | sort | uniq
 
-# cat Bos_mutus.BosGru_v2.0.114.gff3: Lee el archivo completo y envía el contenido a la siguiente parte del comando.
-# |: Toma la salida del comando anterior y la envía al nuevo comando.
-# grep -v '^#': Filtra el archivo y elimina todas las líneas que empiezan por "#", montrando todo lo que NO este con comentado. 
-# cut -f1: Extrae la columna 1 de cada fila. 
-# sort: Ordena alfabéticamente todos los nombres obtenidos. 
-# uniq: Elimina los duplicados. 
+  # cat Bos_mutus.BosGru_v2.0.114.gff3: Lee el archivo completo y envía el contenido a la siguiente parte del comando.
+  # |: Toma la salida del comando anterior y la envía al nuevo comando.
+  # grep -v '^#': Filtra el archivo y elimina todas las líneas que empiezan por "#", montrando todo lo que NO este con comentado. 
+  # cut -f1: Extrae la columna 1 de cada fila. 
+  # sort: Ordena alfabéticamente todos los nombres obtenidos. 
+  # uniq: Elimina los duplicados. 
 
 # Luego, se filtra la columna 1 (secuencia) de todas las líneas válidas (que no contengan ("#") y que sigan el parámetro (CM[0-9]+\.)), 
 #se ordenan las regiones unicas y se cuentan.
 # Esto se hace con el fin de ver 
 # se ordena y se cuentan las regiones únicas.
 
-cat Bos_mutus.BosGru_v2.0.114.gff3 | grep -v '^#' | awk '$1 ~ /^CM[0-9]+\./' | cut -f1 | sort | uniq | wc -l
+cat Bos_mutus.BosGru_v2.0.114.gff3 | grep -v '^#' | grep -E '^CM[0-9]+\.' | cut -f1 | sort -u | wc -l
 
-# cat Bos_mutus.BosGru_v2.0.114.gff3: Lee el archivo completo y envía el contenido a la siguiente parte del comando.
-# |: Toma la salida del comando anterior y la envía al nuevo comando.
-# grep -v '^#': Filtra el archivo y elimina todas las líneas que empiezan por "#", montrando todo lo que NO este con comentado. 
-# awk '$1 ~ /^CM[0-9]+\./': filtra las líneas de la columna 1 que tengan el patrón CM[0-9]+\., es decir, 
-# que empiecen por CM seguido de varios digitos y seguido por un punto (.).
-# cut -f1: extrae la primera columna de cada línea.
-# uniq: Elimina los duplicados. 
-# wc -l: Cuenta el número total de líneas que quedan después del comando.
+
+  # cat Bos_mutus.BosGru_v2.0.114.gff3: Lee el archivo completo y envía el contenido a la siguiente parte del comando.
+  # |: Toma la salida del comando anterior y la envía al nuevo comando.
+  # grep -v '^#': Filtra el archivo y elimina todas las líneas que empiezan por "#", montrando todo lo que NO este con comentado. 
+  # grep -E '^CM[0-9]+\.': Filtra las lineas que empiezan con CM seguido de números y un punto.
+  # cut -f1: extrae la primera columna de cada línea.
+  # uniq: Elimina los duplicados. 
+  # wc -l: Cuenta el número total de líneas que quedan después del comando.
 
 
 # 3. ¿Cuántos genes están listados en el organismo?
 # Se filtra la columna 3, buscando específicamente la palabra "gene",
 # que corresponde al tipo de feature "gene", y se cuentan. Esto se hace con el siguiente comando:
   
-cat Bos_mutus.BosGru_v2.0.114.gff3 | grep -v '^#' | awk '$3 == "gene"' | wc -l
+cat Bos_mutus.BosGru_v2.0.114.gff3|grep -v '^#'|cut -f3| grep "^gene" | wc -l
 
-# cat Bos_mutus.BosGru_v2.0.114.gff3: Lee el archivo completo y envía el contenido a la siguiente parte del comando.
-# |: Toma la salida del comando anterior y la envía al nuevo comando.
-# grep -v '^#': Filtra el archivo y elimina todas las líneas que empiezan por "#", montrando todo lo que NO este con comentado. 
-# awk: Procesa el texto por columnas, en el archivo .gff3 la columna 3 indica el tipo de feature.
-#'$3 == "gene"': filtra solo las lineas donde el tipo de feature (columna 3) sean exactamente "gene".
-# wc -l: Cuenta el número total de líneas que quedan después del comando.
+  # cat Bos_mutus.BosGru_v2.0.114.gff3: Lee el archivo completo y envía el contenido a la siguiente parte del comando.
+  # |: Toma la salida del comando anterior y la envía al nuevo comando.
+  # grep -v '^#': Filtra el archivo y elimina todas las líneas que empiezan por "#", montrando todo lo que NO este con comentado. 
+  # cut -f3: Extrae la tercera columna del archivo.
+  # grep "^gene": De las líneas resultantes filtra las que dicen extamente gene
+  # wc -l: Cuenta el número total de líneas que quedan después del comando.
   
 
 # 4. ¿Cuál es el top 10 de tipo de features (columna 3) más anotados en el genoma?
@@ -76,10 +76,10 @@ cat Bos_mutus.BosGru_v2.0.114.gff3 | grep -v '^#' | awk '$3 == "gene"' | wc -l
   
 cat Bos_mutus.BosGru_v2.0.114.gff3 | grep -v '^#' | cut -f3 | sort | uniq -c | sort -nr | head -10
   
-# cat Bos_mutus.BosGru_v2.0.114.gff3: Lee el archivo completo y envía el contenido a la siguiente parte del comando.
-# |: Toma la salida del comando anterior y la envía al nuevo comando.
-# grep -v '^#': Filtra el archivo y elimina todas las líneas que empiezan por "#", montrando todo lo que NO este con comentado. 
-# cut -f3: extrae la tercera columna de cada línea.
-# uniq -c: cuenta cuántas veces aparece cada tipo de feature. 
-# sort -nr: ordena numericamente y de forma descendente. 
-# head -10: Muestra solo las 10 primeras líneas.  
+  # cat Bos_mutus.BosGru_v2.0.114.gff3: Lee el archivo completo y envía el contenido a la siguiente parte del comando.
+  # |: Toma la salida del comando anterior y la envía al nuevo comando.
+  # grep -v '^#': Filtra el archivo y elimina todas las líneas que empiezan por "#", montrando todo lo que NO este con comentado. 
+  # cut -f3: extrae la tercera columna de cada línea.
+  # uniq -c: cuenta cuántas veces aparece cada tipo de feature. 
+  # sort -nr: ordena numericamente y de forma descendente. 
+  # head -10: Muestra solo las 10 primeras líneas.  
