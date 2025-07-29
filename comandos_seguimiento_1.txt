@@ -55,6 +55,10 @@ cat Bos_mutus.BosGru_v2.0.114.gff3 | grep -v '^#' | grep -E '^CM[0-9]+\.' | cut 
   # uniq: Elimina los duplicados. 
   # wc -l: Cuenta el número total de líneas que quedan después del comando.
 
+#Si quiero saber cuantos JH[0-9]+\. hay, utilizo este comando que funciona exactamente igual al anterior: 
+
+cat Bos_mutus.BosGru_v2.0.114.gff3 | grep -v '^#' | grep -E '^JH[0-9]+\.' | cut -f1 | sort -u | wc -l
+
 
 # 3. ¿Cuántos genes están listados en el organismo?
 # Se filtra la columna 3, buscando específicamente la palabra "gene",
