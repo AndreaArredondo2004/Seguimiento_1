@@ -1,5 +1,6 @@
 SOLUCIÓN SEGUIMIENTO 1
 1. Descripción del archivo.
+   
    El formato GFF3 es muy utilizado en la bioinformática con el fin de representar anotaciones genómicas sobre secuencias de ADN o ARN. Fue desarrollado para escribir
    de manera estructurada y jerárquica los features (características) biológicos de una secuencia, como genes, exones, CDS, mRNA, etc.
    Estos archivos contiene anotaciones genómicas organizadas en líneas tabuladas con 9 campos fijos, los cuales son:
@@ -31,7 +32,7 @@ SOLUCIÓN SEGUIMIENTO 1
    9. ATTRIBUTES: Información adicional y se escribe clave=valor separados por punto y coma.
        Ejemplo: ID=gene1.
 
-2. Descripción del organismo: BOS MUTUS.
+3. Descripción del organismo: BOS MUTUS.
    
    El Yak salvaje del Tíbet, conocido científicamente como Bos Mutus, es un mamífero grande de la familia Bovidae, que habita en las regiones montañosas del Himalaya,
    principalmente se encuentra en Tíbet, Nepal y partes del oeste chino. Tiene un gran tamaño, pelaje largo y denso y cuernos prominentes, lo que les permitío adaptarse
@@ -46,9 +47,12 @@ SOLUCIÓN SEGUIMIENTO 1
 4.  Resolución de preguntas.
    
     1. ¿Cuantos features contiene el archivo?:
+       
        El archivo contiene 1'158.366 de features.
        
-    3. ¿Cuantas regiones de la secuencia (cromosomas) contiene el archivo?:
+    2. ¿Cuantas regiones de la secuencia (cromosomas) contiene el archivo?:
+  
+     
        El archivo en la columna 1 no contiene secuencias que correspondan a cromosomas nombrados CM[0-9]+ ó chr, lo cuál difiere de la literatura que indica que el Bos mutus
        tiene 60 cromosomas (2n=60). Esto no se debe a un error, si no a la forma en la que está representado el genoma del Bos mutus en el archivo .gff3 descargado de
        Ensembl; puesto que, las secuencias de la columna 1 tienen identificadores como JH912421.1, JH912422.1 ó JH912423.1, los cuales indican que las anotaciones están
@@ -67,10 +71,11 @@ SOLUCIÓN SEGUIMIENTO 1
 
        
        
-    5. ¿Cuántos genes están listados en el organismo?:
+    3. ¿Cuántos genes están listados en el organismo?:
+       
        El archivo contiene 20.847 genes listados del Yak salvaje.
        
-    6. ¿Cuál es el top 10 de tipo de features (columna 3 más anotados en el genoma?:
+    4. ¿Cuál es el top 10 de tipo de features (columna 3 más anotados en el genoma?:
        
        El top 10 de tipo de features en la columna 3 más anotados en el genoma son:
        
