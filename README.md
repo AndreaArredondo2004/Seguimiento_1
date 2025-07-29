@@ -58,7 +58,10 @@ SOLUCIÓN SEGUIMIENTO 1
 
        En total en el archivo hay 41.191 contigs o scaffolds (JH[0-9]+\.)
 
-       
+       Referencias:
+       NIH. (2025). Contig. NIH. https://www.genome.gov/es/genetics glossary/C%C3%B3ntigo#:~:text=C%C3%B3ntigo%20(Contig)&text=Un%20c%C3%B3ntigo%20(en%20relaci%C3%B3n%20con,continua%20de%20una%20regi%C3%B3n%20gen%C3%B3mica.
+       Sarleno, C., Conti, G., Cirio, S., Maspero, C., Senna, A., Campus, G. & Cagetti, M. (2025). Training received, knowledge, and use of Silver Diamine Fluoride among Italian dentists: a nationwide survey. NIH. https://pubmed.ncbi.nlm.nih.gov/39833773/
+
        
        
     5. ¿Cuántos genes están listados en el organismo?:
